@@ -1,25 +1,111 @@
-import React from 'react'
+import React from "react";
 import { IoMdHome } from "react-icons/io";
+import { SiYoutubeshorts } from "react-icons/si";
+import { MdOutlineSubscriptions } from "react-icons/md";
+import {useSelector} from 'react-redux';
+
+const sidebarItem = [
+  {
+    icons: <IoMdHome size={"24px"} />,
+    title: "Home",
+  },
+  {
+    icons: <SiYoutubeshorts size={"24px"} />,
+    title: "Shorts",
+  },
+  {
+    icons: <MdOutlineSubscriptions size={"24px"} />,
+    title: "Subscription",
+  },
+   {
+    icons: <IoMdHome size={"24px"} />,
+    title: "Home",
+  },
+  {
+    icons: <SiYoutubeshorts size={"24px"} />,
+    title: "Shorts",
+  },
+  {
+    icons: <MdOutlineSubscriptions size={"24px"} />,
+    title: "Subscription",
+  },
+   {
+    icons: <IoMdHome size={"24px"} />,
+    title: "Home",
+  },
+  {
+    icons: <SiYoutubeshorts size={"24px"} />,
+    title: "Shorts",
+  },
+  {
+    icons: <MdOutlineSubscriptions size={"24px"} />,
+    title: "Subscription",
+  },
+   {
+    icons: <IoMdHome size={"24px"} />,
+    title: "Home",
+  },
+  {
+    icons: <SiYoutubeshorts size={"24px"} />,
+    title: "Shorts",
+  },
+  {
+    icons: <MdOutlineSubscriptions size={"24px"} />,
+    title: "Subscription",
+  },
+   {
+    icons: <IoMdHome size={"24px"} />,
+    title: "Home",
+  },
+  {
+    icons: <SiYoutubeshorts size={"24px"} />,
+    title: "Shorts",
+  },
+  {
+    icons: <MdOutlineSubscriptions size={"24px"} />,
+    title: "Subscription",
+  },
+   {
+    icons: <IoMdHome size={"24px"} />,
+    title: "Home",
+  },
+  {
+    icons: <SiYoutubeshorts size={"24px"} />,
+    title: "Shorts",
+  },
+  {
+    icons: <MdOutlineSubscriptions size={"24px"} />,
+    title: "Subscription",
+  },
+   {
+    icons: <IoMdHome size={"24px"} />,
+    title: "Home",
+  },
+  {
+    icons: <SiYoutubeshorts size={"24px"} />,
+    title: "Shorts",
+  },
+  {
+    icons: <MdOutlineSubscriptions size={"24px"} />,
+    title: "Subscription",
+  },
+];
 
 const Sidebar = () => {
+  const open = useSelector((store)=>store.app.open);
+  console.log(open)
   return (
-    <div className=' w-[12%] ml-4'>
-      <div className='flex justify-between w-[50%] my-2'>
-        <IoMdHome size={'24px'}/>
-         <p>Home</p>
-      </div>
-
-       <div className='flex justify-between my-2 w-[50%]'>
-        <IoMdHome size={'24px'}/>
-         <p>Short</p>
-      </div>
-
-       <div className='flex justify-between  my-2 w-[50%]'>
-        <IoMdHome size={'24px'}/>
-         <p>Subscription</p>
-      </div>
+    <div className=" relative left-0 w-auto p-5 h-[calc(100vh-4.625rem)] bg-white overflow-y-scroll overflow-x-hidden ">
+      {sidebarItem.map((item, idx) => {
+        return (
+          <div key={idx}className="flex my-3">
+            {item.icons}
+            <p className={`ml-5 ${open ? "" :"hidden"}`}>{item.title}</p>
+          </div>
+        );
+      })}
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

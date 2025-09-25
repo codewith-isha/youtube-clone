@@ -1,16 +1,23 @@
-import React from "react";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosNotificationsOutline } from "react-icons/io"
 import { CiVideoOn } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import Avatar from "react-avatar";
+import {useDispatch} from "react-redux"
+import { toggleSidebar } from "../utils/appSlice";
 
 const Navbar = () => {
+ const dispatch = useDispatch();
+  const toggleHandler = () => {
+    // console.log(toggleHandler,"helliw worlid-------------------------- ")
+   dispatch(toggleSidebar())
+  }
   return (
-    <div>
-      <div className="px-5 py-3 flex justify-between items-center">
+    <div className="flex fixed top-[0] justify-center items-center w-[100%]">
+      <div className=" py-3 w-[96%] flex justify-between items-center z-10 bg-white">
       <div className="flex items-center">
-        <GiHamburgerMenu  size={"24px"}/>
+        <GiHamburgerMenu onClick={toggleHandler} size={"24px"}/>
         <img className="px-4" width={'115px'} src="https://upload.wikimedia.org/wikipedia/commons/2/20/YouTube_2024.svg" alt="yt_logo" />
       </div>
       <div className="flex w-[40%] items-center">
